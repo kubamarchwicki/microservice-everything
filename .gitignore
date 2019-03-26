@@ -1,0 +1,5 @@
+.java-version
+build/
+.project
+.settings
+.gradle
