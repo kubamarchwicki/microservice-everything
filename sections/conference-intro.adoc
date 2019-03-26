@@ -1,0 +1,18 @@
+== !
+
+[cols="2*^", options="noheader", grid=none, frame=none]
+|===
+a| image::logo-coredump.png[background="#548998", width=500]
+26-27.11.2018 - Kraków
+http://coredump.events
+
+a| image::logo-segfault.png[background="#ffffff", width=500]
+24.04.2019 - Łódź
+http://segfault.events
+|===
+
+---
+
+* absolutnie niedogmatyczne podejście do programistycznych mód
+* alergia na *bullshit*
+* olewczy stosunek dla autortetów

@@ -1,14 +1,24 @@
-== A jeżeli już się zdecydujemy
+== But we've already started!
 
-to co robią nasze mikro serwisy kiedy nikt nie patrzy?
+what do our services do when nobody watches?
+
+[NOTE.speaker]
+====
+Witout looking I can provide you with a generic image of the system
+====
 
 == !
 
 image::cookie_monster.gif[background]
 
+[NOTE.speaker]
+====
+They are waiting
+====
+
 == Distributed computing
 
-[quote, Jakaś mailing lista Microsoft 1987, Leslie Lamport]
+[quote, Microsoft mailing list 1987, Leslie Lamport]
 A distributed system is one in which the failure of a computer you didn’t even know existed can render your own computer unusable.
 
 == Distributed computing
@@ -18,20 +28,18 @@ image::timeouts.png[width=80%, background="white"]
 == Fallacies of distributed computing
 
 [quote, 1994 - 1998]
-""
 (is) a set of assertions made by L Peter Deutsch and others at Sun Microsystems describing false assumptions that programmers new to distributed applications invariably make
-""
 
 == !
 
-. Sieć jest stabilna.
-. Latency wynosi zero.
-. Przepustowość jest nieskończona.
-. Sieć jest bezpieczna.
-. Topologia sieci nie ulega zmianie.
-. Jest jeden administrator.
-. Koszt przesyłania danych jest pomijalny.
-. Sieć jest homogeniczna.
+. The network is reliable.
+. Latency is zero.
+. Bandwidth is infinite.
+. The network is secure.
+. Topology doesn't change.
+. There is one administrator.
+. Transport cost is zero.
+. The network is homogeneous.
 
 [NOTE.speaker]
 ====
@@ -45,7 +53,12 @@ What we do::
 
 all the things
 
-== No więc który load balancer wybrać?
+[NOTE.speaker]
+====
+There is a meme for that, for sure
+====
+
+== Which load balancer?
 
 == !
 
@@ -87,31 +100,31 @@ Netflix Ribbon
 == CAP + Network Fallacies
 
 Client-Side Service Discovery / Load balancing::
-Każdy serwis rejestruje się w centralnym repozytorium, gdzie inne serwisy szukają informacji o dostępności usług - po czym samodzielnie decydują z którą z dostępnych instancji należy się komunikować.
+Service registers itself in a central repository. The repository also provides an information about other services availability. 
+Other services request the information and autonomously decide which instances are called.
 
 Server-Side Service Discovery / Load balancing::
-Infromacja przechowywana jest centralnie, na poziomie load balancera - dzięki czemu klienci zawsze odwołują się do tego samego adresu IP (enkapsulując dynamiczne zmiany środowiska).
+Service registers itself in a central repository. 
+Other services access the repository (single address), which internally forwards the request to an available instance.
 
-== No więc który load balancer wybrać?
+== Which load balancer?
 
 == Brewer's theorem (CAP theorem)
 
 [quote, 1998]
-""
 (...) it is impossible for a distributed computer system to simultaneously provide all three of the following guarantees: Consistency, Availability and Partition tolerance.
-""
 
 [%notitle]
 == CAP guarantees
 
 *Consistency*::
-Spójność. Każdy odczyt to najświeższe, ostatnio zapisane dane lub błąd.
+Every read receives the most recent write or an error
 
 *Availability*::
-Dostępność. Każdy odczyt zakończony jest sukcesem, jednak nie ma gwarancji że dane które otrzymaliśmy są najświeższe.
+Every request receives a (non-error) response – without the guarantee that it contains the most recent write
 
 *Partition tolerance*::
-Odporność na podział. System kontynuuje działanie pomimo awarii sieci i braku komunikacji pomiędzy węzłami.
+The system continues to operate despite an arbitrary number of messages being dropped (or delayed) by the network between nodes
 
 [NOTE.speaker]
 ====
@@ -124,10 +137,15 @@ Odporność na podział. System kontynuuje działanie pomimo awarii sieci i brak
 
 == CAP + Network Fallacies
 
+
+== CAP + Network Fallacies
+
+[.statement]
+*either* Consistent *or* Available *when* Partitioned
+
 [NOTE.speaker]
 ====
-* Let's introduce load balancing into the system
-* Partition tolerance is a must
+because network partitions are a kind of fault, so they aren’t something about which you have a choice: they will happen whether you like it or not
 ====
 
 == Consistency vs Availability
@@ -135,7 +153,7 @@ Odporność na podział. System kontynuuje działanie pomimo awarii sieci i brak
 [cols="70%,30%", options="noheader", grid=none, frame=none]
 |===
 a|CP::
-Wszystkie informacje są spójne (przechowywane w atomowym repozytorium)
+All data is consistent (single store)
 
 a|image::CAP-CP.png[]
 |===
@@ -145,7 +163,7 @@ a|image::CAP-CP.png[]
 [cols="70%,30%", options="noheader", grid=none, frame=none]
 |===
 a|AP::
-Informacja jest rozproszona (na wzór sieci peer-to-peer)
+Data is distributed 
 
 a|image::CAP-AP.png[]
 |===
@@ -155,10 +173,10 @@ a|image::CAP-AP.png[]
 
 [NOTE.speaker]
 ====
-Wyjaśnijmy to jak pastrz owcy!
+Let's describe CAP theorem in plain english
 ====
 
-== No więc który load balancer wybrać?
+== Which load balancer?
 
 // TODO: ale ktoś powie, hola hola. Ja poczekam
 //
@@ -171,32 +189,17 @@ Wyjaśnijmy to jak pastrz owcy!
 [.statement]
 in the absence of partitions, one has to choose between *latency* and *consistency*
 
+[NOTE.speaker]
+====
+It's still distributed system, still latency is non zero
+====
+
 == PACELC theorem
 
 [quote, Daniel J. Abadi 2012]
 Ignoring the consistency/latency tradeoff of replicated systems is a major oversight [in CAP], as it is present at all times during system operation, whereas CAP is only relevant in the arguably rare case of a network partition.
 
+== Which load balancer?
 
-== Latency w ludzkim ujęciu
+//Designing Data-Intensive Applications p. 337 
 
-[NOTE.speaker]
-====
-Jeden cykl procesora to jest jedna sekunda - a nie 400nanosekund
-====
-
-
-== !
-
-[cols="60%,20%,20%"]
-|===
-
-| One CPU cycle | 0.4 ns | 1 s
-| Level 1 cache access | 0.9 ns | 2 s
-// | Level 2 cache access | 2.8 ns | 7 s
-// | Level 3 cache access | 28 ns | 1 min
-| Main memory access (DDR DIMM) | ~100 ns | 4 min
-| SSD I/O | 50–150 μs | 1.5–4 days
-| Rotational disk I/O | 1–10 ms | 1–9 months
-| Internet call SF to NYC | 65 ms | 5 years
-
-|===

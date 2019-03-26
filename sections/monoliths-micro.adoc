@@ -1,0 +1,63 @@
+[.centered]
+== Monolith are bad - mmkey??
+
+image::monoliths-are-bad.jpg[background]
+
+== Microservices are good
+
+[%step]
+* Clean code
+* Single responsibility modules [detail]#potentialy#
+* Faster than monoliths [detail]#faster to deploy, works faster#
+* Easier to manage [detail]#independent teams, independent codebases#
+* Easier to scale [detail]#at this point we should at least mention Docker#
+* *Docker, Docker, Docker, Docker*
+
+[.centered]
+== Microservices are good - mmmkey?
+
+image::microservices-are-fine.png[background]
+
+== {zwsp}
+
+[quote]
+(...) collection of task-oriented or dedicated systems that pool their resources and capabilities together to create a new, more complex system which offers more functionality and performance than simply the sum of the constituent systems
+
+== System of systems
+
+[quote]
+(...) collection of task-oriented or dedicated systems that pool their resources and capabilities together to create a new, more complex system which offers more functionality and performance than simply the sum of the constituent systems
+
+[NOTE.speaker]
+====
+Another definition - a better definition. Sounds like microservices?
+
+*System of systems / Cyber-Phisical Systems*
+
+====
+
+== !
+
+image::boeing787.png[background]
+
+[NOTE.speaker]
+====
+7 mln LoC - flight control system
+====
+
+// == Monolit to zło - mmkey?
+// 
+// image::monoliths-are-bad.jpg[background]
+
+== So what can possibly go wrong?
+
+[NOTE.speaker]
+====
+Well... lets start easy - I've found an illustration of inter process communication in of the recent microservices deployment.
+====
+
+
+== !
+
+image::microservices-arch.gif[background]
+

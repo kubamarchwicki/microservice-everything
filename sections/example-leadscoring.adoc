@@ -4,6 +4,11 @@
 [.statement.pull-right]
 a scoring engine [detail]#-- 2009#
 
+[NOTE.speaker]
+====
+*Describe the context and the domain*
+====
+
 [.terminal, background-color="black"]
 == !
 ....
@@ -35,11 +40,11 @@ a scoring engine [detail]#-- 2009#
 ....
 
 [.right]
-== Cel biznesowy?
+== Business value?
 
 [.pull-right]
-Webservices są trudne do sprzedaży. +
-[pull-right]#*Można to jakoś to wizualizować?*#
+Webservices are so hard to sell. +
+[pull-right]#*Can you visualize this? A UI?*#
 
 
 [.terminal, background-color="black"]
@@ -124,26 +129,55 @@ Webservices są trudne do sprzedaży. +
 ====
 
 [.recap-red]
-== Zapamiętać
+== Note to self
 
 [.statement]
-Rodzielne rzeczy trzymaj *oddzielnie*
+*Keep* separate things *separately*
 
 [NOTE]
 [role="speaker"]
 ====
-* Jeżeli rzeczy zmieniają się w różnym tempie, trzymaj je niezależnie
+* Things change with various pace. If they differ, treat them differently.
+* A Maslov hammer
+//TODO: sprawdzić definicję młotka maslova
 ====
 
 == Microservices checklist
 
-* icon:check-square-o[] Niewielki problem biznesowy
-* icon:minus-square-o[] Niezależny; niezależnie wdrażany
-* icon:minus-square-o[] Działający we własnym procesie
-* icon:minus-square-o[] Zarządzający swoimi danymi
-* icon:check-square-o[] Integrujący się z wykorzytaniem powszechnych interfejsów
+* icon:square-o[] Small business domain
+* icon:square-o[] Independent; independently deployed
+* icon:square-o[] Running in it's own process
+* icon:square-o[] Managing it's data
+* icon:square-o[] Loosely integrated using common communication protocols
 
-== Retrospekcja
+[NOTE.speaker]
+====
+Let me introduce microservices checklist
+====
+
+== Microservices checklist
+
+* icon:check-square-o[] Small business domain
+* icon:minus-square-o[] Independent; independently deployed
+* icon:minus-square-o[] Running in it's own process
+* icon:minus-square-o[] Managing it's data
+* icon:check-square-o[] Loosely integrated using common communication protocols
+
+[NOTE.speaker]
+====
+Told you - it's a journey
+====
+
+
+== Retrospective
+
+[NOTE.speaker]
+====
+While we are not there yet with microservices - there are things to improve in our day to day development process.
+
+Lessons learned
+====
+
 
 == !
 
@@ -154,13 +188,13 @@ ____
 
 [NOTE.speaker]
 ====
-Czy biblioteka pasuje powiem nam kompilator, w design time. Nim system wyjdzie na produkcję
-
-Kto nam powie czy serwis pasuje?
+* If we use libraries, compiler is out friend (check is there are any PHP developers present)
+* Checks are in design time, before test / uat / production deployment
+* With a new architecture, who tells us something went wrong?
 
 (wait for it)
 
-Klient nam powie jak dostanie HTTP503
+* Client when they get an HTTP503
 ====
 
 
@@ -171,9 +205,7 @@ Klient nam powie jak dostanie HTTP503
 
 [NOTE.speaker]
 ====
-Testy producenta RestAssured.
-
-Stuby serwisów zewnętrznych (testy konsumera)
-
-Consumer driven contracts
+* Can we mitigate it - sure
+* Producer validates the present API, against various consumers expectations
+* Consumers check against providers' generated data samples (wiremocks / docker stubs)
 ====

@@ -1,0 +1,96 @@
+= Microservices, microservices everywhere
+Jakub Marchwicki [@kubem]
+:idprefix: slide_
+:title-slide-background-image: amazing-blue-sky-desktop-background.jpg
+:title-slide-background-size: cover
+:icons: font
+:imagesdir: images
+:figure-caption!:
+:revealjs_center: true
+:revealjs_theme: poang
+:revealjs_transition: none
+:revealjs_progress: false
+:revealjs_history: true
+:revealjs_controls: false
+:revealjs_customtheme: css/poang.css
+:revealjs_width: 1920
+:revealjs_height: 1080
+:source-highlighter: coderay
+
+== The 5 Why's of microservices
+
+* Microservices? [detail]#Why?#
+* Microservices? [detail]#Why?#
+* Microservices? [detail]#Oh, why?#
+* Microservices? [detail]#Oh dear God, why?#
+* Microservices? [detail]#Damn it! Why?#
+
+[NOTE.speaker]
+====
+* We will be looking through different cases for microservices
+* Not tackling what are microservices
+* Why it's worth?
+* Why bother?
+* And what's next?
+====
+
+== !
+
+
+[cols="30%, 70%", options="noheader", grid=none, frame=none]
+|===
+a| image::logo-muumap.jpg[width=300] | Tech wizard @ DAC S.A.
+a| image::logo-segfault.png[background="white", width=300] | Chief Mob Officer +
+{zwsp} +
+Jakub Marchwicki <@kubem> +
+http://jakub.marchwicki.pl
+|===
+
+
+
+include::sections/definitions.adoc[]
+include::sections/monoliths-micro.adoc[]
+include::sections/micro-antipatten.adoc[]
+
+== Microservices journey
+
+[NOTE.speaker]
+====
+Take a different approach, maybe microservies architecture is not a state in which we suddenly find ourselves, maybe it's a journey
+====
+
+
+== Microservices journey
+
+[quote, Christopher Alexander]
+____
+A *Piecemeal Growth* is the process of building something a step at a time. Each step consists of evaluating the current system, deciding what should be done next (what should be fixed or improved) and then adding a piece or making a change.
+____
+
+[NOTE.speaker]
+====
+* *The road is the goal* - obvious for every martial arts practicioner
+* Hardly any system is built from scratch
+* Architecture evolve
+* My personal systems retrospective - for past 15 years there was a single system that started as a green field.
+* Let me take you through some examples
+====
+
+
+include::sections/example-leadscoring.adoc[]
+
+include::sections/example-image-directory.adoc[]
+
+include::sections/reminders.adoc[]
+
+include::sections/networking.adoc[]
+
+include::sections/final-words.adoc[]
+
+// include::sections/conference-intro.adoc[]
+include::sections/casumo-intro.adoc[]
+
+
+//“Once you realize that the road is the goal and that you are always on the road, not to reach a goal, but to enjoy its beauty and its wisdom, life ceases to be a task and becomes natural and simple, in itself an ecstasy.”
+
+// Sri Nisargadatta Maharaj

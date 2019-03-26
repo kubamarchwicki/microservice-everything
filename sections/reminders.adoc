@@ -1,0 +1,75 @@
+== Lessons learned
+
+[.statement]
+from *all these* projects
+
+[NOTE.speaker]
+====
+* yeah, I've bragged a bit, but what is a lesson learned here
+* we have a monolith but want to be micro
+* we don't exacly know how to approach it
+====
+
+== Start small
+
+== !
+
+[.statement]
+monoliths are +
+[.pull-right]#*slightly less*# +
+[.pull-right]#distributed systems#
+
+[NOTE.speaker]
+====
+* databases, external integrations
+* why don't we adhere some microservice rules in our monoliths
+* Circuit breakers? Fallbacks - on every external call
+====
+
+== Don't diagram - trace and visualize
+
+== !
+
+[.statement]
+// diagramy to tylko mapa +
+let the application tell you +
+*where it spends time*
+
+[NOTE.speaker]
+====
+* Your diagram is a map - not a territory
+* Zipkin, opentrace, logging, monitoring
+* Derrive diagrams from code
+====
+
+
+// [%notitle]
+// == Centralne logowanie
+
+// [.statement]
+// *loguj centralnie* +
+// kto nie zabił serwera _grep_ em +
+// niech pierwszy rzuci kamieniem
+
+// [%notitle]
+// == Consumer Driven Contracts
+//
+// [.statement]
+// monolityczne aplikacje +
+// komunikują się [pull-right]#*przez API*# +
+// z zewnętrznym API też należy je testować
+//
+// [NOTE.speaker]
+// ====
+// * Consumer Driven Contracts
+// * Pact, Spring contracts
+// ====
+
+// [%notitle]
+== Automate, automate, automate
+
+== !
+
+[.statement]
+event a single WAR +
+*cannot* be deployed *manually*

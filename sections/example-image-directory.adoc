@@ -7,9 +7,9 @@ huge image repository [detail]#-- 2007#
 [NOTE]
 [role="speaker"]
 ====
-* I work in education business with traditional publishers
+* I worked in education business with traditional publishers
 * our big data are images and movies
-* 4TB of data in files & 8GB of data in database
+* 8TB of data in files & 100GB of data in database
 ====
 
 [.terminal, background-color="black"]
@@ -22,10 +22,10 @@ huge image repository [detail]#-- 2007#
 |                                      |
 +-----------+--------------------------+
             |
-            | (1)
-            |
-            v
-
+            | (1)       ^
+            |           |
+            v           | (5)
+                        |
 +-------------------------------------+
 |                                     |
 |         application logic           |
@@ -60,20 +60,20 @@ huge image repository [detail]#-- 2007#
 ====
 
 [.right]
-== Cel biznesowy
+== Business value?
 
 [.pull-right]
-Szukajka jest taaaaaaka wolna +
-[pull-right]#*że nie da się pracować*#
+The search function is unbelievably slow +
+[pull-right]#*can't work with it*#
 
 
 [.topic.recap.red-border]
-== Zapamiętać
+== Note to self
 
 [.statement]
-Nie ma czegoś takiego jak legacy
-Gdy nikt nie używa - wyrzuć +
-[pull-right]#*Jak nie - polub!*#
+There is *no* such thing as *legacy* 
+-- what can't be killed, becomes  
+[pull-right]#*business as usual*#
 
 [.terminal, background-color="black"]
 == !
@@ -116,13 +116,13 @@ Gdy nikt nie używa - wyrzuć +
 ====
 
 [.recap-red]
-== Zapamiętać
+== Note to self
 
 [.statement]
-Z odpowiednim podejściem  +
-*wszystko jest* +
-[pull-right]#*usługą*# +
-nie zawsze mikro
+Once observed -- *everything is* +
+*a* not always micro
+[pull-right]#*service*# +
+
 
 [NOTE]
 [role="speaker"]
@@ -136,15 +136,15 @@ nie zawsze mikro
 
 == Microservices checklist
 
-* icon:check-square-o[] Niewielki problem biznesowy
-* icon:check-square-o[] Niezależny; niezależnie wdrażany
-* icon:check-square-o[] Działający we własnym procesie
-* icon:check-square-o[] Zarządzający swoimi danymi
-* icon:check-square-o[] Integrujący się z wykorzytaniem powszechnych interfejsów
+* icon:check-square-o[] Small business domain
+* icon:check-square-o[] Independent; independently deployed
+* icon:check-square-o[] Running in it's own process
+* icon:check-square-o[] Managing it's data
+* icon:check-square-o[] Loosely integrated using common communication protocols
 
-== Retrospekcja
+== Retrospective
 
-[quote, Consistency protocols (2007), Andrew Tanenbaum]
+[quote, Distributed Systems (2007) - Principles & Paradigms, Andrew Tanenbaum]
 ____
 (...) as every parent of a small child knows, converting a large object into small fragments is considerably easier than the reverse process.
 ____
@@ -158,9 +158,12 @@ ____
 
 [NOTE.speaker]
 ====
-* No właśnie - co z danymi??
-* Ale jako programiści rzadko kiedy chcemy po te reguły nie sięgnąć
-* Czy istnieją reguły biznesowe dla błędów i pomyłek (jak w liniach lotnicznych)
+* Distributed Systems (2007) - Principles & Paradigms. Chapter 7, consistency and replication
+** It's fairly academic. If you looking for something easier there is *Designing Data-Intensive Applications* by Martin Kleppmann
+* Yeah, what about data?? What have I done?
+* I've introduced replication? What I though it through? What are the consequences? How I introduced it? Is it performant?
+* What is there is an error? Are there any business rules for mistakes, cache misses etc?
+** Like in airlines? With overbooking
 ====
 
 [.terminal, background-color="black"]
@@ -188,3 +191,14 @@ Read through
                       +--------------------------+               +---------------------------+
 
 ....
+
+[NOTE.speaker]
+====
+In here were are caching, which is a special case for replication. 
+Depending on the architecture we work with 
+
+* consistency (is the set of data same between nodes)
+** what data is in our read / query model
+* coherence (has each copy of the data abide the same rules)
+** how the data got into the read / query model
+====

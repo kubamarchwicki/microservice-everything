@@ -4,7 +4,7 @@
 
 [NOTE.speaker]
 ====
-No bo jak to z reguły wygląda
+So how it usually works out?
 ====
 
 
@@ -241,6 +241,10 @@ No bo jak to z reguły wygląda
 
 [NOTE.speaker]
 ====
-* I jeżeli to jest dostęp do pojedynczego zasobu to spoko. A co gdy chyba zasobów jest 1780?
-* Mamy n+1 select problem (znany z ORMów) tylko po HTTP - no przecież co zgłego może się zdarzyć
+* This is a naive approach
+* It's fine for a 40 minutes presentation
+* For a limited time workshop, with a single service
+* What if there are 15k resources?
+* We got an n+1 select problem (well known from Hibernate or other object relational mappings) but over HTTP 
+* So what can possibly go wrong?
 ====

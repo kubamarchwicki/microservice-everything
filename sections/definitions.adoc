@@ -1,0 +1,88 @@
+== Microservices, how it all started?
+
+[detail]#All names, characters, and incidents portrayed in this story are fictitious. No identification with actual persons (living or deceased), places, and buildings is intended or should be inferred.#
+
+[.preamble]
+=== On day one there was a lonely architect was sitting
+
+[.preamble]
+=== in a tower made of ivory
+
+uncertainty and sadness
+
+[.preamble]
+=== and the architect said
+
+[.preamble]
+=== let there be &micro;services
+
+[.preamble]
+=== let there be small modules 
+
+which have only one reason for a change
+
+[.preamble]
+=== let the modules communicate
+
+over well defined interfaces
+
+[.preamble]
+=== let the output of one module 
+
+becomes the input of the other
+
+[.preamble]
+=== and the architect saw it was good
+
+[.preamble]
+=== and the architect called it 
+
+*a distributed system*
+
+[.preamble]
+=== and developers seen it
+
+and it was good 
+
+[.preamble]
+=== and there was evening, and there was morning
+
+(Genesis. 1, 1-25)
+
+== !
+
+image::southpark2.gif[background]
+
+== Microservices
+
+//TODO
+
+[quote, James Lewis and Martin Fowler]
+____
+the *microservice architectural style is an approach* to developing a single application as a suite of small services, each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API
+____
+
+
+[NOTE.speaker]
+====
+From their very first article on microservices. Microservices - a definition of this new architectural term (2014)
+====
+
+[%notitle]
+== &micro;services
+
+image::flamings1.gif[background]
+
+== &micro;services
+
+[%step]
+* Small business domain
+* Independent; independently deployed
+* Running in it's own process
+* Managing it's data
+* Loosely integrated using common communication protocols
+
+[%notitle]
+== &micro;services
+
+image::flamings2.gif[background]
