@@ -1,0 +1,20 @@
+== Mikroserwisy są proste...
+
+image::book-building_microservices.jpg[background]
+
+== ...ale nie są łatwe
+
+image::book-other_books.jpg[background]
+
+== Pytania?
+
+image::questions.gif[background]
+
+== !
+
+image::http://395squadron.ca/wp-content/uploads/2015/12/1578-cloud-background-resized3-vail-blue-sky-limo-1920x1080.jpg[background]
+
+http://speakerdeck.com/kubamarchwicki/microservice-everything-redux
+
+@kubem . kuba.marchwicki@gmail.com +
+http://jakub.marchwicki.pl/

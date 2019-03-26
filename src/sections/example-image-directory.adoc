@@ -1,0 +1,190 @@
+[.recap]
+== Exibit C
+
+[.statement.pull-right]
+huge image repository [detail]#-- 2007#
+
+[NOTE]
+[role="speaker"]
+====
+* I work in education business with traditional publishers
+* our big data are images and movies
+* 4TB of data in files & 8GB of data in database
+====
+
+[.terminal, background-color="black"]
+== !
+
+....
++--------------------------------------+
+|                                      |
+|         web / controllers            |
+|                                      |
++-----------+--------------------------+
+            |
+            | (1)
+            |
+            v
+
++-------------------------------------+
+|                                     |
+|         application logic           |
+|                                     |
++--+-------------------------+--------+
+   |                         |
+   | (2)   ^                 | (4)
+   |       |                 |
+   v       | (3)             v
+           |
++----------+--+    +------------------+
+|             |    |                  |
+|    MySQL    |    |    filesystem    |
+|             |    |                  |
++-------------+    +------------------+
+....
+
+[NOTE]
+[role="speaker"]
+====
+* A very simple flow. I'd say simplistic
+* That's not much unless:
+** The DB is denormalized MySQL
+** Files are randomly spread throughout the drive
+** Badly designed SQL queries
+** Your app is a PHP application
+* That was a Structs architecture written in PHP.
+** That didnt stand a test of time
+* Initially no caching. That database temp tables
+* *And now they want you to make search faster*
+** Where you'd rather throw this whole shite away
+====
+
+[.right]
+== Cel biznesowy
+
+[.pull-right]
+Szukajka jest taaaaaaka wolna +
+[pull-right]#*że nie da się pracować*#
+
+
+[.topic.recap.red-border]
+== Zapamiętać
+
+[.statement]
+Nie ma czegoś takiego jak legacy
+Gdy nikt nie używa - wyrzuć +
+[pull-right]#*Jak nie - polub!*#
+
+[.terminal, background-color="black"]
+== !
+....
+        Proxy
+
+       +-----+                                 +------------------+
+       |     |         /*                      |                  |
++----------------+-------------------------->  |                  |
+       |     |   |                             |  The Old stuff   |
+       |     |   |                             |                  +--------+
+       |     |   |                             |                  |        |
+       |     |   |                             +------------------+        |
+       |     |   |                                                         |
+       |     |   |                                                         |  Elastic Search
+       |     |   |                                                         |  data push
+       |     |   |                                                         |
+       |     |   |                                                         |
+       |     |   |                             +------------------+        |
+       |     |   |     /search                 |                  |        |
+       |     |   +-------------------------->  |                  | <------+
+       |     |                                 |  Elastic Search  |
+       |     |                                 |       index      |
+       |     |                                 |                  |
+       +-----+                                 +------------------+
+....
+
+[NOTE]
+[role="speaker"]
+====
+* That was the idea.
+* The design looked solid
+* The project never happened - due to various things
+
+* You can delegate functionality in that way in various projects
+** Semantic search for a legacy portal
+** Advanced browsing for asset store
+** One-off shot functionalities
+* You build it, you cash it, you close it
+====
+
+[.recap-red]
+== Zapamiętać
+
+[.statement]
+Z odpowiednim podejściem  +
+*wszystko jest* +
+[pull-right]#*usługą*# +
+nie zawsze mikro
+
+[NOTE]
+[role="speaker"]
+====
+* That brings me to another example
+* Depending on your definition, what is microservice
+** How micro should be the service
+** Or size doesnt matter - but responsibility
+* If you bound the context, aggregate - is it enough for microservice
+====
+
+== Microservices checklist
+
+* icon:check-square-o[] Niewielki problem biznesowy
+* icon:check-square-o[] Niezależny; niezależnie wdrażany
+* icon:check-square-o[] Działający we własnym procesie
+* icon:check-square-o[] Zarządzający swoimi danymi
+* icon:check-square-o[] Integrujący się z wykorzytaniem powszechnych interfejsów
+
+== Retrospekcja
+
+[quote, Consistency protocols (2007), Andrew Tanenbaum]
+____
+(...) as every parent of a small child knows, converting a large object into small fragments is considerably easier than the reverse process.
+____
+
+// == !
+//
+// * Te same koncepcją mają różne znaczenie w rożnych obszarach +
+// [detail]#modele kanoniczne, DDD itp#
+// * Nie ma możliwości przeprowadzenia spójnej aktualizacji w systemie rozproszonym, po kilku bazach danych
+// * Jak zarządzać potencjalnym brakiem spójności danych
+
+[NOTE.speaker]
+====
+* No właśnie - co z danymi??
+* Ale jako programiści rzadko kiedy chcemy po te reguły nie sięgnąć
+* Czy istnieją reguły biznesowe dla błędów i pomyłek (jak w liniach lotnicznych)
+====
+
+[.terminal, background-color="black"]
+== !
+
+....
+Write through
+
+  update query       +--------------------------+         +----------------------------------+
+-------------------->| update denormalized view |-------->| update persistent (master) store |
+                     +--------------------------+         +----------------------------------+
+
+
+Write behind
+
+  update query   +----------------------------------+            +---------------------------+
+---------------->| update persistent (master) store |----------->| update denormalized views |
+                 +----------------------------------+            +---------------------------+
+
+
+Read through
+
+  read query          +--------------------------+               +---------------------------+
+<---------------------| update denormalized view |<--------------|   read persistent store   |
+                      +--------------------------+               +---------------------------+
+
+....

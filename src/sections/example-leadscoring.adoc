@@ -1,0 +1,179 @@
+[.recap]
+== Exibit B
+
+[.statement.pull-right]
+a scoring engine [detail]#-- 2009#
+
+[.terminal, background-color="black"]
+== !
+....
+
+           +-----------------------------------------------+
+           |                                               |
+           |  +-----------------------------------+        |
+           |  |                                   |        |
+           |  |          Boundary: SOAP           |        |
+           |  |                                   |        |
+           |  +-----------------------------------+        |
+           |  |                                   |        |
+           |  |               EJB                 |        |
+           |  |                                   |        |
+           |  +-----------------------------------+        |
+           |                                               |
+           |                                               |
+           |  +--------+   +-------+   +----------+        |
+           |  |        |   |       |   |          |        |
+           |  | JAX-WS |   |  JPA  |   |  DROOLS  |        |
+           |  |        |   |       |   |          |        |
+           |  +--------+   +-------+   +----------+        |
+           |                                               |
+           |                                               |
+           |                                 JBoss 4.2.x   |
+           |                                               |
+           +-----------------------------------------------+
+
+....
+
+[.right]
+== Cel biznesowy?
+
+[.pull-right]
+Webservices są trudne do sprzedaży. +
+[pull-right]#*Można to jakoś to wizualizować?*#
+
+
+[.terminal, background-color="black"]
+== !
+....
+
+           +-----------------------------------------------+
+           |                                               |
+           |  +--------------------+--------------+        |
+           |  |                    |              |        |
+           |  |   Boundary: SOAP   |     JSF      |        |
+           |  |                    |              |        |
+           |  +--------------------+--------------+        |
+           |  |                                   |        |
+           |  |               EJB                 |        |
+           |  |                                   |        |
+           |  +-----------------------------------+        |
+           |                                               |
+           |                                               |
+           |  +--------+   +-------+   +----------+        |
+           |  |        |   |       |   |          |        |
+           |  | JAX-WS |   |  JPA  |   |  DROOLS  |        |
+           |  |        |   |       |   |          |        |
+           |  +--------+   +-------+   +----------+        |
+           |                                               |
+           |                                               |
+           |                                 JBoss 4.2.x   |
+           |                                               |
+           +-----------------------------------------------+
+
+....
+
+[NOTE]
+[role="speaker"]
+====
+* That was the initial approach- which I didn't like
+* I personally dislike JSF
+* After further discussion with business - the need was for mobile UI
+** Primefaces didn't make much sense in such case (remember 2009)
+* The app took ages to deploy so the development was hell
+** 25 minuts with full caching
+** I'm blaming the workstations - but still had to find another way
+====
+
+[.terminal, background-color="black"]
+== !
+
+....
+    +-----------------------------------------------+
+    |                                               |
+    |  +-----------------+-----------------+        |         +---------------+
+    |  |                 |                 |        |         |               |
+    |  | Boundary: SOAP  |  REST endpoint  | <--------------+ |   Dedicated   |
+    |  |                 |                 |        |         |    mobile     |
+    |  +-----------------+-----------------+        |         |  Single Page  |
+    |  |                                   |        |         |  Application  |
+    |  |               EJB                 |        |         |               |
+    |  |                                   |        |         |               |
+    |  +-----------------------------------+        |         +---------------+
+    |                                               |
+    |                                               |
+    |  +--------+   +-------+   +----------+        |
+    |  |        |   |       |   |          |        |
+    |  | JAX+WS |   |  JPA  |   |  DROOLS  |        |
+    |  |        |   |       |   |          |        |
+    |  +--------+   +-------+   +----------+        |
+    |                                               |
+    |                                               |
+    |                                 JBoss 4.2.x   |
+    |                                               |
+    +-----------------------------------------------+
+
+....
+
+[NOTE]
+[role="speaker"]
+====
+* That was simple - write and endpoint, deploy and never come back
+* Develop the application externally, independently
+* My UI was one service, everything else was another
+* That wasn't really a microservice - but it made me think...
+====
+
+[.recap-red]
+== Zapamiętać
+
+[.statement]
+Rodzielne rzeczy trzymaj *oddzielnie*
+
+[NOTE]
+[role="speaker"]
+====
+* Jeżeli rzeczy zmieniają się w różnym tempie, trzymaj je niezależnie
+====
+
+== Microservices checklist
+
+* icon:check-square-o[] Niewielki problem biznesowy
+* icon:minus-square-o[] Niezależny; niezależnie wdrażany
+* icon:minus-square-o[] Działający we własnym procesie
+* icon:minus-square-o[] Zarządzający swoimi danymi
+* icon:check-square-o[] Integrujący się z wykorzytaniem powszechnych interfejsów
+
+== Retrospekcja
+
+== !
+
+[quote, James Lewis]
+____
+We define *libraries* as components that are linked into a program and called using in-memory calls, while *services* are out-of-process components who communicate with remote procedure calls
+____
+
+[NOTE.speaker]
+====
+Czy biblioteka pasuje powiem nam kompilator, w design time. Nim system wyjdzie na produkcję
+
+Kto nam powie czy serwis pasuje?
+
+(wait for it)
+
+Klient nam powie jak dostanie HTTP503
+====
+
+
+== Consumer Driven Contracts
+
+(...) drives the development of the *Provider* from its *Consumers* point of view, which means consumer describes *what and how it wants to receive the information* (in a form of a contract) and then *provider implements the service following the given contract*.
+
+
+[NOTE.speaker]
+====
+Testy producenta RestAssured.
+
+Stuby serwisów zewnętrznych (testy konsumera)
+
+Consumer driven contracts
+====

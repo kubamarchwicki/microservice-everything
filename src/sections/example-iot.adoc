@@ -1,0 +1,5 @@
+[.topic.recap]
+== Exibit D
+
+[.statement.pull-right]
+traffic lights monitoring [detail]#-- 2016#

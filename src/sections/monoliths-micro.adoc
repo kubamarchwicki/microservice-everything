@@ -1,0 +1,51 @@
+[.centered]
+== Monolit to zło - mmkey?
+
+image::monoliths-are-bad.jpg[background]
+
+== Mikroserwisy są fajne
+
+[%step]
+* Czysty kod
+* Tworzymy moduły które mają pojedynczą odpowiedzialność [detail]#potencjalnie#
+* Są szybsze niż monolity [detail]#szybsze do wdrożenia, szybsze w działaniu#
+* Łatwiejsze w zarządzaniu [detail]#nie wszyscy pracują na pojedynczym code-basie#
+* Łatwiejsze do skalowania [detail]#tutaj gdzieś powinien pojawić się Docker#
+* *Docker, docker, docker, docker*
+
+[.centered]
+== Mikroserwisy są fajne - mmmkey?
+
+image::microservices-are-fine.png[background]
+
+[%notitle]
+== No ale przecież
+
+[quote]
+(...) collection of task-oriented or dedicated systems that pool their resources and capabilities together to create a new, more complex system which offers more functionality and performance than simply the sum of the constituent systems
+
+[NOTE.speaker]
+====
+To tak ładnie brzmi.. ale to nie jest definicja mikroserwisu...
+
+*System of systems / Cyber-Phisical Systems*
+====
+
+== !
+
+image::boeing787.png[background]
+
+[NOTE.speaker]
+====
+7 mln LoC - system sterowania lotem
+====
+
+== Monolit to zło - mmkey?
+
+image::monoliths-are-bad.jpg[background]
+
+== Bo cóż może się nie udać?
+
+== !
+
+image::microservices-arch.gif[background]

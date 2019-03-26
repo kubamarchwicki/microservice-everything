@@ -1,0 +1,246 @@
+
+[.terminal, background-color="black"]
+== !
+
+[NOTE.speaker]
+====
+No bo jak to z reguły wygląda
+====
+
+
+[.terminal, background-color="black"]
+== !
+
+....
+// Exibit A
+
++-------------+
+|             |
+|  Resources  |
+|   service   |
+|             |
++-------------+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+....
+
+
+
+
+[.terminal, background-color="black"]
+== !
+
+....
+// Exibit A
+                            +------------------+
++-------------+             |                  |
+|             |             |  Access control  |
+|  Resources  |             |                  |
+|   service   |             +------------------+
+|             |
++-------------+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+....
+
+
+
+[.terminal, background-color="black"]
+== !
+
+....
+// Exibit A
+                            +------------------+
++-------------+             |                  |
+|             |             |  Access control  |
+|  Resources  |             |                  |
+|   service   |             +------------------+
+|             |
++-------------+
+
+
+                        +----------------+
+                        |                |
+                        |     Users      |
+                        |   repository   |
+                        |                |
+                        +----------------+
+
+
+
+
+//
+....
+
+
+
+[.terminal, background-color="black"]
+== !
+
+....
+// Exibit A
+                            +------------------+
++-------------+             |                  |
+|             |             |  Access control  |
+|  Resources  |             |                  |
+|   service   |             +------------------+
+|             |
++-+-----------+
+  ^
+  |
+  |                     +----------------+
+  |                     |                |
+  |                     |     Users      |
+  |                     |   repository   |
+  |                     |                |
+  |                     +----------------+
+ (1)
+  +
+
+
+//
+....
+
+
+
+[.terminal, background-color="black"]
+== !
+
+....
+// Exibit A
+                            +------------------+
++-------------+             |                  |
+|             |             |  Access control  |
+|  Resources  |             |                  |
+|   service   |             +------------------+
+|             |
++-+-------+---+
+  ^       |
+  |       |
+  |       |             +----------------+
+  |       |             |                |
+  |       |             |     Users      |
+  |       |   (2)       |   repository   |
+  |       +-----------> |                |
+  |                     +----------------+
+ (1)
+  +
+
+
+//
+....
+
+
+
+
+[.terminal, background-color="black"]
+== !
+
+....
+// Exibit A
+                            +------------------+
++-------------+             |                  |
+|             |             |  Access control  |
+|  Resources  |             |                  |
+|   service   |             +------------------+
+|             +<---------+
++-+-------+---+   (3)    |
+  ^       |              |
+  |       |              |
+  |       |             +----------------+
+  |       |             |                |
+  |       |             |     Users      |
+  |       |   (2)       |   repository   |
+  |       +-----------> |                |
+  |                     +----------------+
+ (1)
+  +
+
+
+//
+....
+
+
+
+[.terminal, background-color="black"]
+== !
+
+....
+// Exibit A
+                            +------------------+
++-------------+             |                  |
+|             |   (4)       |  Access control  |
+|  Resources  +------------>+                  |
+|   service   |             +------------------+
+|             +<---------+
++-+-------+---+   (3)    |
+  ^       |              |
+  |       |              |
+  |       |             +----------------+
+  |       |             |                |
+  |       |             |     Users      |
+  |       |   (2)       |   repository   |
+  |       +-----------> |                |
+  |                     +----------------+
+ (1)
+  +
+
+
+//
+....
+
+
+[.terminal, background-color="black"]
+== !
+
+....
+// Exibit A
+                            +------------------+
++-------------+             |                  |
+|             |   (4)       |  Access control  |
+|  Resources  +------------>+                  |
+|   service   |             +------------------+
+|             +<---------+
++-+-------+---+   (3)    |
+  ^  |    |              |
+  |  |    |              |
+  |  |    |             +----------------+
+  |  |    |             |                |
+  |  |    |             |     Users      |
+  |  |    |   (2)       |   repository   |
+  |  |    +-----------> |                |
+  |  |                  +----------------+
+ (1) |
+  +  |
+    (5)
+     v
+//
+....
+
+[NOTE.speaker]
+====
+* I jeżeli to jest dostęp do pojedynczego zasobu to spoko. A co gdy chyba zasobów jest 1780?
+* Mamy n+1 select problem (znany z ORMów) tylko po HTTP - no przecież co zgłego może się zdarzyć
+====
