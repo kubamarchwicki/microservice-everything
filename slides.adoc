@@ -36,13 +36,15 @@ Jakub Marchwicki [@kubem]
 
 == !
 
+image::cat-pictures.png[background]
 
-[cols="30%, 70%", options="noheader", grid=none, frame=none]
+[cols="20h,40h,~", options="noheader", grid=none, frame=none]
 |===
-a| image::logo-muumap.jpg[width=300] | Tech wizard @ DAC S.A.
-a| image::logo-segfault.png[background="white", width=300] | Chief Mob Officer +
-{zwsp} +
-Jakub Marchwicki <@kubem> +
+a| image::logo-casumo.png[background="white", width=300] 
+2+| Software engineer
+a| image::logo-segfault.png[background="white", width=300] 
+2+| Chief Mob Officer 
+3+|Jakub Marchwicki <@kubem> +
 http://jakub.marchwicki.pl
 |===
 
@@ -88,7 +90,7 @@ include::sections/networking.adoc[]
 include::sections/final-words.adoc[]
 
 // include::sections/conference-intro.adoc[]
-include::sections/casumo-intro.adoc[]
+// include::sections/casumo-intro.adoc[]
 
 
 //“Once you realize that the road is the goal and that you are always on the road, not to reach a goal, but to enjoy its beauty and its wisdom, life ceases to be a task and becomes natural and simple, in itself an ecstasy.”

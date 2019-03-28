@@ -3,12 +3,12 @@
 [detail]#All names, characters, and incidents portrayed in this story are fictitious. No identification with actual persons (living or deceased), places, and buildings is intended or should be inferred.#
 
 [.preamble]
-=== On day one there was a lonely architect was sitting
+=== On day one there was a lonely architect sitting
 
 [.preamble]
 === in a tower made of ivory
 
-uncertainty and sadness
+sitting in an uncertainty and sadness
 
 [.preamble]
 === and the architect said
@@ -19,7 +19,7 @@ uncertainty and sadness
 [.preamble]
 === let there be small modules 
 
-which have only one reason for a change
+which have only a single reason to change
 
 [.preamble]
 === let the modules communicate
@@ -66,6 +66,8 @@ ____
 [NOTE.speaker]
 ====
 From their very first article on microservices. Microservices - a definition of this new architectural term (2014)
+
+Many people say putting HTTP and lightweight in a single sentence is against common sense. 
 ====
 
 [%notitle]

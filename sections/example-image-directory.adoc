@@ -115,24 +115,24 @@ There is *no* such thing as *legacy*
 * You build it, you cash it, you close it
 ====
 
-[.recap-red]
-== Note to self
+// [.recap-red]
+// == Note to self
 
-[.statement]
-Once observed -- *everything is* +
-*a* not always micro
-[pull-right]#*service*# +
+// [.statement]
+// Once observed -- *everything is* +
+// *a* not always micro
+// [pull-right]#*service*# +
 
 
-[NOTE]
-[role="speaker"]
-====
-* That brings me to another example
-* Depending on your definition, what is microservice
-** How micro should be the service
-** Or size doesnt matter - but responsibility
-* If you bound the context, aggregate - is it enough for microservice
-====
+// [NOTE]
+// [role="speaker"]
+// ====
+// * That brings me to another example
+// * Depending on your definition, what is microservice
+// ** How micro should be the service
+// ** Or size doesnt matter - but responsibility
+// * If you bound the context, aggregate - is it enough for microservice
+// ====
 
 == Microservices checklist
 
@@ -143,6 +143,8 @@ Once observed -- *everything is* +
 * icon:check-square-o[] Loosely integrated using common communication protocols
 
 == Retrospective
+
+== !
 
 [quote, Distributed Systems (2007) - Principles & Paradigms, Andrew Tanenbaum]
 ____

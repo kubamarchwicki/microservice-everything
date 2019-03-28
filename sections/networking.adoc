@@ -49,6 +49,14 @@ What we do::
 ** and that brings us to another problem
 ====
 
+== In other words
+
+== !
+
+[.statement]
+network +
+*sucks* 
+
 == Load balance
 
 all the things
@@ -58,7 +66,7 @@ all the things
 There is a meme for that, for sure
 ====
 
-== Which load balancer?
+== ... Before Choosing a Load Balancer
 
 == !
 
@@ -107,7 +115,7 @@ Server-Side Service Discovery / Load balancing::
 Service registers itself in a central repository. 
 Other services access the repository (single address), which internally forwards the request to an available instance.
 
-== Which load balancer?
+== ... Before Choosing a Load Balancer
 
 == Brewer's theorem (CAP theorem)
 
@@ -128,16 +136,12 @@ The system continues to operate despite an arbitrary number of messages being dr
 
 [NOTE.speaker]
 ====
-* We've started noticing it the noSQL databases came along
-** Consistent and Available: Oracle, Mysql
-** Consistent and Partition tolerance: MongoDB
-** Available and Partition tolerance: Dynamo, Cassandra, CouchDB
 * Eventual consistency
 ====
 
 == CAP + Network Fallacies
 
-
+[%notitle]
 == CAP + Network Fallacies
 
 [.statement]
@@ -145,7 +149,10 @@ The system continues to operate despite an arbitrary number of messages being dr
 
 [NOTE.speaker]
 ====
-because network partitions are a kind of fault, so they aren’t something about which you have a choice: they will happen whether you like it or not
+* We've started noticing it the noSQL databases came along
+** Consistent and Available: Oracle, Mysql
+** Consistent and Partition tolerance: MongoDB
+** Available and Partition tolerance: Dynamo, Cassandra, CouchDB
 ====
 
 == Consistency vs Availability
@@ -168,15 +175,17 @@ Data is distributed
 a|image::CAP-AP.png[]
 |===
 
-[.terminal, background-color="black"]
-== !
-
 [NOTE.speaker]
 ====
 Let's describe CAP theorem in plain english
 ====
 
-== Which load balancer?
+
+[.terminal, background-color="black"]
+== !
+
+
+== ... Before Choosing a Load Balancer
 
 // TODO: ale ktoś powie, hola hola. Ja poczekam
 //
@@ -199,7 +208,7 @@ It's still distributed system, still latency is non zero
 [quote, Daniel J. Abadi 2012]
 Ignoring the consistency/latency tradeoff of replicated systems is a major oversight [in CAP], as it is present at all times during system operation, whereas CAP is only relevant in the arguably rare case of a network partition.
 
-== Which load balancer?
+== ... Before Choosing a Load Balancer
 
 //Designing Data-Intensive Applications p. 337 
 
