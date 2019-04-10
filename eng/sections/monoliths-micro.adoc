@@ -13,6 +13,11 @@ image::monoliths-are-bad.jpg[background]
 * Easier to scale [detail]#at this point we should at least mention Docker#
 * *Docker, Docker, Docker, Docker*
 
+[NOTE.speaker]
+====
+At this point most of us already forgot about integration these guy together
+====
+
 [.centered]
 == Microservices are good - mmmkey?
 

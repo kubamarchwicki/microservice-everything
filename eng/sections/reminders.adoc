@@ -71,5 +71,5 @@ let the application tell you +
 == !
 
 [.statement]
-event a single WAR +
+event a single *JAR* +
 *cannot* be deployed *manually*

@@ -80,13 +80,10 @@ Webservices are so hard to sell. +
 [NOTE]
 [role="speaker"]
 ====
-* That was the initial approach- which I didn't like
-* I personally dislike JSF
+* That was the initial approach
 * After further discussion with business - the need was for mobile UI
-** Primefaces didn't make much sense in such case (remember 2009)
 * The app took ages to deploy so the development was hell
-** 25 minuts with full caching
-** I'm blaming the workstations - but still had to find another way
+** 25 minutes with full caching
 ====
 
 [.terminal, background-color="black"]

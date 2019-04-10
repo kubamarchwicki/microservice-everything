@@ -8,7 +8,7 @@
 [.preamble]
 === in a tower made of ivory
 
-sitting in an uncertainty and sadness
+full of uncertainty and sadness
 
 [.preamble]
 === and the architect said
@@ -35,7 +35,10 @@ becomes the input of the other
 === and the architect saw it was good
 
 [.preamble]
-=== and the architect called it 
+=== and the architect has give it name 
+
+[.preamble]
+=== the architect called it 
 
 *a distributed system*
 

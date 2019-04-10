@@ -46,17 +46,13 @@ huge image repository [detail]#-- 2007#
 [NOTE]
 [role="speaker"]
 ====
-* A very simple flow. I'd say simplistic
-* That's not much unless:
 ** The DB is denormalized MySQL
 ** Files are randomly spread throughout the drive
 ** Badly designed SQL queries
 ** Your app is a PHP application
 * That was a Structs architecture written in PHP.
-** That didnt stand a test of time
-* Initially no caching. That database temp tables
+* Loads of caching - database temp tables
 * *And now they want you to make search faster*
-** Where you'd rather throw this whole shite away
 ====
 
 [.right]
@@ -104,10 +100,6 @@ There is *no* such thing as *legacy*
 [NOTE]
 [role="speaker"]
 ====
-* That was the idea.
-* The design looked solid
-* The project never happened - due to various things
-
 * You can delegate functionality in that way in various projects
 ** Semantic search for a legacy portal
 ** Advanced browsing for asset store
@@ -161,11 +153,9 @@ ____
 [NOTE.speaker]
 ====
 * Distributed Systems (2007) - Principles & Paradigms. Chapter 7, consistency and replication
-** It's fairly academic. If you looking for something easier there is *Designing Data-Intensive Applications* by Martin Kleppmann
-* Yeah, what about data?? What have I done?
+** Academic. something easier *Designing Data-Intensive Applications* by Martin Kleppmann
 * I've introduced replication? What I though it through? What are the consequences? How I introduced it? Is it performant?
-* What is there is an error? Are there any business rules for mistakes, cache misses etc?
-** Like in airlines? With overbooking
+* What is there is an error? Are there any business rules for mistakes, cache misses etc? *Like in airlines? With overbooking*
 ====
 
 [.terminal, background-color="black"]

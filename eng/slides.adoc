@@ -4,7 +4,7 @@ Jakub Marchwicki [@kubem]
 :title-slide-background-image: amazing-blue-sky-desktop-background.jpg
 :title-slide-background-size: cover
 :icons: font
-:imagesdir: images
+:imagesdir: ../images
 :figure-caption!:
 :revealjs_center: true
 :revealjs_theme: poang
@@ -12,9 +12,10 @@ Jakub Marchwicki [@kubem]
 :revealjs_progress: false
 :revealjs_history: true
 :revealjs_controls: false
-:revealjs_customtheme: css/poang.css
+:revealjs_customtheme: ../css/poang.css
 :revealjs_width: 1920
 :revealjs_height: 1080
+:revealjs_plugin_pdf: enabled
 :source-highlighter: coderay
 
 == The 5 Why's of microservices
