@@ -1,0 +1,76 @@
+== Co zapamiętać
+
+[.statement]
+z tych *wszystkich* projeków
+
+[NOTE.speaker]
+====
+* mamy monolit ale chcemy mikro
+* ale nie mamy za bardzo jak, za bardzo z czym
+* jak żyć Panie premierze? jak żyć?
+====
+
+== Metoda małych kroków
+
+== !
+
+[.statement]
+monility to systemy +
+"troszkę mniej rozproszone" +
+[.pull-right]#*przestaną działać*# +
+[.pull-right]#kiedyś#
+
+[NOTE.speaker]
+====
+* databases, external integrations
+* why don't we adhere some microservice rules in our monoliths
+* Circuit breakers? Fallbacks - on every external call
+====
+
+// [%notitle]
+== Nie rysuj - śledź i wizualizuj
+
+== !
+
+[.statement]
+// diagramy to tylko mapa +
+niech aplikacja sama mówi +
+*gdzie spędza czas*
+
+[NOTE.speaker]
+====
+* Your diagram is a map - not a territory
+* Zipkin, opentrace, logging, monitoring
+* Derrive diagrams from code
+====
+
+// [%notitle]
+// == Centralne logowanie
+
+// [.statement]
+// *loguj centralnie* +
+// kto nie zabił serwera _grep_ em +
+// niech pierwszy rzuci kamieniem
+
+// [%notitle]
+// == Consumer Driven Contracts
+//
+// [.statement]
+// monolityczne aplikacje +
+// komunikują się [pull-right]#*przez API*# +
+// z zewnętrznym API też należy je testować
+//
+// [NOTE.speaker]
+// ====
+// * Consumer Driven Contracts
+// * Pact, Spring contracts
+// ====
+
+// [%notitle]
+== Automatyzuj, automatyzuj
+
+== !
+
+[.statement]
+nawet pojedynczego JAR'a +
+*nie* wdrażaj *ręcznie*

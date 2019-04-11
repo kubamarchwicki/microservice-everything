@@ -1,0 +1,144 @@
+[.recap]
+== Exibit C
+
+[.pull-right]
+reactive education platform [detail]#-- 2014#
+
+[.right]
+== Cel biznesowy?
+
+[.pull-right]
+Uczniowie używają platformy do prac domowych +
+[pull-right]#*Tzn. że po 18 ruch jest 10 razy większy!*#
+
+[.terminal, background-color="black"]
+== !
+
+....
+
+
+
+
+
+
+    +--------------------------------------------+
+    |                                            |        Frontend
+    |                                            |        application
+    +--------------------------------------------+
+
+        +--------------+   +---------------+
+        |              |   |               |              Application
+        |              |   |               |              logic
+        +--------------+   +---------------+
+
+    +--------------------------------------------+
+    |                                            |        Event
+    |                                            |        Bus
+    +--------------------------------------------+
+
+        +------+  +------+  +------+ +------+
+        |      |  |      |  |      | |      |             Platform
+        |      |  |      |  |      | |      |             components
+        +------+  +------+  +------+ +------+
+
+....
+
+[NOTE]
+[role="speaker"]
+====
+* 6-8 generic services per application (fully reused)
+* app logic, depends on app logic (little reuse)
+* different API principles on every layer
+
+====
+
+[.terminal, background-color="black"]
+== !
+
+....
+
+
+
+
+
+
+    +--------------------------------------------+
+    |                                            |        Static HTML + JS
+    |                                            |        Easily scalable
+    +--------------------------------------------+
+
+        +--------------+   +---------------+
+        |              |   |               |              HTTP
+        |              |   |               |              Resource oriented communication
+        +--------------+   +---------------+
+
+    +--------------------------------------------+
+    |                                            |        RPC Communication
+    |                                            |
+    +--------------------------------------------+
+
+        +------+  +------+  +------+ +------+
+        |      |  |      |  |      | |      |             Vert.X Verticles
+        |      |  |      |  |      | |      |
+        +------+  +------+  +------+ +------+
+
+....
+
+[NOTE]
+[role="speaker"]
+====
+* each level covers different API
+* with different guiding principles
+====
+
+== A jeżeliby użyć Vert.X?
+
+[%step]
+* usługi, serwisy to moduły [detail]#minimalizacja zależności pomiędzy zespołami#
+* niezależność frontend'u (JS) i backend'u [detail]#HTTP endpoints#
+* wdrażanie monolitycznie [detail]#brak komunikacji pomiędzy węzłami#
+* komunikacja poprzez zdarzenia [detail]#z wykorzystaniem _event bus_#
+
+[.recap-red]
+== Zapamiętać
+
+[.statement]
+Decouple *people* from *software* +
+Manage what's hard to manage
+
+[NOTE.speaker]
+====
+* Idea mikro to możliwość szybkich zmian
+* Problem jest w ludziach - jeżeli osiągnąłeś to - nie musisz stosować wszystkich zasad mikro
+====
+
+
+
+== Microservices checklist
+
+* icon:check-square-o[] Niewielki problem biznesowy
+* icon:minus-square-o[] Niezależny; niezależnie wdrażany
+* icon:minus-square-o[] Działający we własnym procesie
+* icon:check-square-o[] Zarządzający swoimi danymi
+* icon:check-square-o[] Integrujący się z wykorzytaniem powszechnych interfejsów
+
+== Retrospekcja
+
+== !
+
+[quote, Joe Wales]
+____
+Golang is a language I don't particularly enjoy coding, but deployment is painless: single static linked executable. No external dependencies on runtime.
+____
+
+[NOTE.speaker]
+====
+to po co mam się męczyć z setką serwisów skoro nie muszę
+====
+
+== Po co nam DevOpsy?
+
+* *time gap* - wdrażaj rzadko (co pół roku) +
+[detail]#rzeczy trudne lepiej robić rzadko#
+* *personal gap* - różni ludzie robią różne rzeczy
+* *tools gap* - diametralnie inne stosy technologiczne pomiędzy dev i ops [detail]#(Nginx, SQLite, and OS X / Apache, MySQL, and Linux)#

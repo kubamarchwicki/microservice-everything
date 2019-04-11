@@ -1,0 +1,321 @@
+:long-line: pass:[<div style="width: 1920px"></div>] 
+
+== A jeżeli już się zdecydujemy
+
+to co robią nasze mikro serwisy kiedy nikt nie patrzy?
+
+[NOTE.speaker]
+====
+Witout looking I can provide you with a generic image of the system
+====
+
+== !
+
+image::cookie_monster.gif[background]
+
+== Distributed computing
+
+[quote, Jakaś mailing lista Microsoft 1987, Leslie Lamport]
+A distributed system is one in which the failure of a computer you didn’t even know existed can render your own computer unusable.
+
+== Distributed computing
+
+image::timeouts.png[width=80%, background="white"]
+
+== Fallacies of distributed computing
+
+[quote, 1994 - 1998]
+(is) a set of assertions made by L Peter Deutsch and others at Sun Microsystems describing false assumptions that programmers new to distributed applications invariably make
+
+== !
+
+. Sieć jest stabilna.
+. Latency wynosi zero.
+. Przepustowość jest nieskończona.
+. Sieć jest bezpieczna.
+. Topologia sieci nie ulega zmianie.
+. Jest jeden administrator.
+. Koszt przesyłania danych jest pomijalny.
+. Sieć jest homogeniczna.
+
+[NOTE.speaker]
+====
+What we do::
+* introduce circuit breakers
+* load balancers with services discover
+** and that brings us to another problem
+====
+
+== Innymi słowy
+
+== !
+
+[.statement]
+sieć +
+*ścierwi* 
+
+== Load balance
+
+all the things
+
+== ... który load balancer wybrać?
+
+== !
+
+* AWS Elastic Load Balancer
+* nginx
+* Ribbon + Eureka
+* Ribbon + Consul
+* Kubernetes
+
+== Load balancing
+
+image::lb-server-side.png[background="white"]
+
+[NOTE.speaker]
+====
+AWS Elastic Load Balancer
+====
+
+== Server-side Load balancing
+
+image::lb-server-side.png[background="white"]
+
+[NOTE.speaker]
+====
+AWS Elastic Load Balancer
+====
+
+
+== Client-side load balancing
+
+image::lb-client-side.png[background="white"]
+
+[NOTE.speaker]
+====
+Netflix Ribbon
+====
+
+[%notitle]
+== CAP + Network Fallacies
+
+Client-Side Service Discovery / Load balancing::
+{long-line} + 
+{zwsp} +
+{zwsp} +
+{zwsp} 
+
+// Każdy serwis rejestruje się w centralnym repozytorium, gdzie inne serwisy szukają informacji o dostępności usług. +
+// Pozostałe serwisy samodzielnie decydują z którą z dostępnych instancji odbywa się komunikacja.
+
+Server-Side Service Discovery / Load balancing::
+{long-line} + 
+{zwsp} +
+{zwsp} +
+{zwsp} 
+
+// Każdy serwis rejestruje się w centralnym repozytorium. +
+// Pozostałe serwisy odwołują się do repozytorium (pojedynczy adres sieciowy), które wewnętrznie przekierowuje ruch do jednej z dostępnych instancji.
+
+[%notitle]
+== CAP + Network Fallacies
+
+Client-Side Service Discovery / Load balancing::
+Każdy serwis rejestruje się w centralnym repozytorium, gdzie inne serwisy szukają informacji o dostępności usług. +
+Pozostałe serwisy samodzielnie decydują z którą z dostępnych instancji odbywa się komunikacja.
+
+Server-Side Service Discovery / Load balancing::
+{zwsp} +
+{zwsp} +
+{zwsp} +
+{zwsp} 
+
+// Każdy serwis rejestruje się w centralnym repozytorium. +
+// Pozostałe serwisy odwołują się do repozytorium (pojedynczy adres sieciowy), które wewnętrznie przekierowuje ruch do jednej z dostępnych instancji.
+
+[%notitle]
+== CAP + Network Fallacies
+
+Client-Side Service Discovery / Load balancing::
+Każdy serwis rejestruje się w centralnym repozytorium, gdzie inne serwisy szukają informacji o dostępności usług. +
+Pozostałe serwisy samodzielnie decydują z którą z dostępnych instancji odbywa się komunikacja.
+
+Server-Side Service Discovery / Load balancing::
+Każdy serwis rejestruje się w centralnym repozytorium. +
+Pozostałe serwisy odwołują się do repozytorium (pojedynczy adres sieciowy), które wewnętrznie przekierowuje ruch do jednej z dostępnych instancji.
+
+== ... który load balancer wybrać?
+
+== Brewer's theorem (CAP theorem)
+
+[quote, 1998]
+(...) it is impossible for a distributed computer system to simultaneously provide all three of the following guarantees: Consistency, Availability and Partition tolerance.
+
+[%notitle]
+== CAP guarantees
+
+*Consistency*::
+{long-line} + 
+
+*Availability*::
+{long-line} + 
+{zwsp}
+
+*Partition tolerance*::
+{long-line} + 
+{zwsp} 
+
+[%notitle]
+== CAP guarantees
+
+*Consistency*::
+Spójność. Każdy odczyt to najświeższe, ostatnio zapisane dane lub błąd.
+
+*Availability*::
+{long-line} + 
+{zwsp}
+
+*Partition tolerance*::
+{long-line} + 
+{zwsp}
+
+[%notitle]
+== CAP guarantees
+
+*Consistency*::
+Spójność. Każdy odczyt to najświeższe, ostatnio zapisane dane lub błąd.
+
+*Availability*::
+Dostępność. Każdy odczyt zakończony jest sukcesem, +
+nie ma gwarancji że dane które otrzymaliśmy są najświeższe.
+
+*Partition tolerance*::
+{long-line} + 
+{zwsp}
+
+
+
+[%notitle]
+== CAP guarantees
+
+*Consistency*::
+Spójność. Każdy odczyt to najświeższe, ostatnio zapisane dane lub błąd.
+
+*Availability*::
+Dostępność. Każdy odczyt zakończony jest sukcesem, +
+nie ma gwarancji że dane które otrzymaliśmy są najświeższe.
+
+*Partition tolerance*::
+Odporność na podział. System kontynuuje działanie pomimo awarii sieci i braku komunikacji pomiędzy węzłami.
+
+[NOTE.speaker]
+====
+* Eventual consistency
+====
+
+== CAP + Network Fallacies
+
+[%notitle]
+== CAP + Network Fallacies
+
+[.statement]
+*either* Consistent *or* Available *when* Partitioned
+
+[NOTE.speaker]
+====
+* We've started noticing it the noSQL databases came along
+** Consistent and Available: Oracle, Mysql
+** Consistent and Partition tolerance: MongoDB
+** Available and Partition tolerance: Dynamo, Cassandra, CouchDB
+====
+
+== Consistency vs Availability
+
+[cols="70%,30%", options="noheader", grid=none, frame=none]
+|===
+a|CP::
+Wszystkie dane są spójne (przechowywane w atomowym repozytorium)
+
+a|image::CAP-CP.png[]
+|===
+
+== Consistency vs Availability
+
+[cols="70%,30%", options="noheader", grid=none, frame=none]
+|===
+a|AP::
+Dane są rozproszone (na wzór sieci peer-to-peer)
+
+a|image::CAP-AP.png[]
+|===
+
+[NOTE.speaker]
+====
+Wyjaśnijmy to jak pastrz owcy!
+====
+
+[.terminal, background-color="black"]
+== !
+
+== ... który load balancer wybrać?
+
+// TODO: ale ktoś powie, hola hola. Ja poczekam
+//
+// TODO: oczywiście: PACELC theorem
+//
+== CAP + Network latencies
+
+== !
+
+[.statement]
+in the absence of partitions, one has to choose between *latency* and *consistency*
+
+[NOTE.speaker]
+====
+It's still distributed system, still latency is non zero
+====
+
+== PACELC theorem
+
+[quote, Daniel J. Abadi 2012]
+Ignoring the consistency/latency tradeoff of replicated systems is a major oversight [in CAP], as it is present at all times during system operation, whereas CAP is only relevant in the arguably rare case of a network partition.
+
+
+== Latency w ludzkim ujęciu
+
+[NOTE.speaker]
+====
+Jeden cykl procesora to jest jedna sekunda - a nie 400nanosekund
+====
+
+
+== !
+
+[cols="60%,20%,20%"]
+|===
+
+| One CPU cycle | 0.4 ns | 1 s
+| Level 1 cache access | 0.9 ns | 2 s
+// | Level 2 cache access | 2.8 ns | 7 s
+// | Level 3 cache access | 28 ns | 1 min
+| Main memory access (DDR DIMM) | ~100 ns | 4 min
+| SSD I/O | 50–150 μs | 1.5–4 days
+| Rotational disk I/O | 1–10 ms | 1–9 months
+| Internet call SF to NYC | 65 ms | 5 years
+
+|===
+
+== Innymi słowy
+
+== !
+
+[.statement]
+sieć +
+*zawsze ścierwi* 
+
+== ... który load balancer wybrać?
+
+[NOTE.speaker]
+====
+A my się zastanawiamy który load balancer wybrać
+====

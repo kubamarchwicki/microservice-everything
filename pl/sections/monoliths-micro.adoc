@@ -1,0 +1,64 @@
+[.centered]
+== Monolit to zło - mmkey?
+
+image::monoliths-are-bad.jpg[background]
+
+== Mikroserwisy są fajne
+
+[%step]
+* Czysty kod
+* Tworzymy moduły które mają pojedynczą odpowiedzialność [detail]#potencjalnie#
+* Są szybsze niż monolity [detail]#szybsze do wdrożenia, szybsze w działaniu#
+* Łatwiejsze w zarządzaniu [detail]#nie wszyscy pracują na pojedynczym code-basie#
+* Łatwiejsze do skalowania [detail]#tutaj gdzieś powinien pojawić się Docker#
+* *Docker, docker, docker, docker*
+
+[NOTE.speaker]
+====
+At this point most of us already forgot about integration these guy together
+====
+
+[.centered]
+== Mikroserwisy są fajne - mmmkey?
+
+image::microservices-are-fine.png[background]
+
+== {zwsp}
+
+[quote]
+(...) collection of task-oriented or dedicated systems that pool their resources and capabilities together to create a new, more complex system which offers more functionality and performance than simply the sum of the constituent systems
+
+== System of systems
+
+[quote]
+(...) collection of task-oriented or dedicated systems that pool their resources and capabilities together to create a new, more complex system which offers more functionality and performance than simply the sum of the constituent systems
+
+[NOTE.speaker]
+====
+Another definition - a better definition. Sounds like microservices?
+
+*System of systems / Cyber-Phisical Systems*
+
+====
+
+== !
+
+image::boeing787.png[background]
+
+[NOTE.speaker]
+====
+7 mln LoC - system sterowania lotem
+
+Tutaj remark o 737 :)
+====
+
+== Co może pójść nie tak?
+
+[NOTE.speaker]
+====
+Well... lets start easy - I've found an illustration of inter process communication in of the recent microservices deployment.
+====
+
+== !
+
+image::microservices-arch.gif[background]

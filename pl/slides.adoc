@@ -1,0 +1,87 @@
+= Mikroserwisy, wszędzie mikroserwisy
+Jakub Marchwicki [@kubem]
+:idprefix: slide_
+:title-slide-background-image: amazing-blue-sky-desktop-background.jpg
+:title-slide-background-size: cover
+:icons: font
+:imagesdir: ../images
+:figure-caption!:
+:revealjs_center: true
+:revealjs_theme: poang
+:revealjs_transition: none
+:revealjs_progress: false
+:revealjs_history: true
+:revealjs_controls: false
+:revealjs_customtheme: ../css/poang.css
+:revealjs_width: 1920
+:revealjs_height: 1080
+:source-highlighter: coderay
+
+== The 5 Why's of microservices
+
+* Mikroserwisy? [detail]#Dlaczego?#
+* Mikroserwisy? [detail]#Dlaczego?#
+* Mikroserwisy? [detail]#`(ง •̀ω•́)ง✧`, dlaczego?#
+* Mikroserwisy? [detail]#`●.◉`, dlaczego?#
+* Mikroserwisy? [detail]#`༼☯﹏☯༽`! Dlaczego?#
+
+[NOTE.speaker]
+====
+* Będziemy odmieniać mikroserwisy przez przypadki
+* Co to?
+* Dlaczego warto?
+* Dlaczego nie-warto?
+* Dlaczego ja spróbowałem?
+* I co potem?
+====
+
+== !
+
+image::cat-pictures.png[background]
+
+[cols="20h,40h,~", options="noheader", grid=none, frame=none]
+|===
+a| image::logo-casumo.png[background="white", width=300] 
+2+| Software engineer
+a| image::logo-segfault.png[background="white", width=300] 
+2+| Chief Mob Officer 
+3+|Jakub Marchwicki <@kubem> +
+http://jakub.marchwicki.pl
+|===
+
+
+
+include::sections/definitions.adoc[]
+include::sections/monoliths-micro.adoc[]
+include::sections/micro-antipatten.adoc[]
+
+== Droga ku mikroserwisom
+
+== Droga ku mikroserwisom
+
+[quote, Christopher Alexander]
+____
+*Piecemeal Growth* to proces budowy krok po kroku, umożliwiający ciągłą ewaluację istniejącego systemu oraz elastyczne podejmowanie decyzji jaki powinien być kolejny krok.
+____
+
+[NOTE.speaker]
+====
+* Droga jest celem - to wie każdy fan wschodnich sztuk walki
+* Ponieważ mało kto buduje taki system "od zera"
+* Częściej organicznie ewoluujemy architekturę
+* My personal systems retrospective - for past 15 years there was a single system that started as a green field.
+* Let me take you through some examples
+====
+
+
+include::sections/example-leadscoring.adoc[]
+
+include::sections/example-image-directory.adoc[]
+
+include::sections/reminders.adoc[]
+
+include::sections/networking.adoc[]
+
+include::sections/final-words.adoc[]
+
+include::sections/conference-intro.adoc[]

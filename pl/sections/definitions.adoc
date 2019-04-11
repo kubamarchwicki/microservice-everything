@@ -1,0 +1,83 @@
+== Dlaczego mikroserwisy?
+
+[detail]#Całkiem prawdopodobna historia, chociaż wszystkie wydarzenia i postacie przedstawione poniżej są fikcyjne.#
+
+[.preamble]
+=== dnia pierwszego, siedział architekt
+
+[.preamble]
+=== w swojej wieży z kości słoniowej
+
+w smutku i niepewności
+
+[.preamble]
+=== i architekt rzekł
+
+[.preamble]
+=== niech nastaną mikroserwisy
+
+[.preamble]
+=== niech nastaną małe usługi
+
+zmieniające się z jednego tylko powodu
+
+[.preamble]
+=== niech usługi komunikują się
+
+z wykorzystaniem otwartych interfejsów
+
+[.preamble]
+=== i niech wyjście jednego będzie wejściem dla kolejnego
+
+[.preamble]
+=== uczyniwszy to architekt dał temu nazwę
+
+[.preamble]
+=== nazwał to systemem rozproszonym
+
+[.preamble]
+=== i programiści widzieli to
+
+i było to dobre
+
+[.preamble]
+=== i tak upłynął wieczór i poranek
+
+(Rodz. 1, 4-13)
+
+== !
+
+image::southpark2.gif[background]
+
+== Mikroserwisy
+
+[quote, Sam Newman]
+____
+Mikroserwisy to *koncept architektoniczny* który w założeniu ma na celu rozprzęgnięcie rozwiązania poprzez jego dekompozycje funkcjonalną na mniejsze elementy, komunikujące się między sobą poprzez lekkie mechanizmy, często HTTP
+____
+
+[NOTE.speaker]
+====
+Z jednego z pierwszych artykułów nt mikroserwisów. Microservices - a definition of this new architectural term (2014)
+
+Wiele osób do dzisiaj uważa że wrzucanie w jednym zdaniu HTTP i lekki (lightweight) to obraza na zdrowym rozsądku. 
+====
+
+[%notitle]
+== Mikroserwisy
+
+image::flamings1.gif[background]
+
+== Mikroserwisy
+
+[%step]
+* Niewielki problem biznesowy
+* Niezależny; niezależnie wdrażany
+* Działający we własnym procesie
+* Zarządzający swoimi danymi
+* Integrujący się z wykorzytaniem powszechnych interfejsów
+
+[%notitle]
+== Mikroserwisy
+
+image::flamings2.gif[background]

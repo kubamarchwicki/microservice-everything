@@ -1,0 +1,11 @@
+== !
+
+.SegFault - wszystko co potrzebujesz wiedzieć aby awansować
+image::logo-segfault.png[background="#ffffff", width=500]
+*26.04.2019 - Łódź*
+http://segfault.events
+
+---
+____
+absolutnie niedogmatyczne podejście do programistycznych mód, alergia na *bullshit*, olewczy stosunek dla autortetów
+____
